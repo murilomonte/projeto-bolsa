@@ -27,3 +27,14 @@ CREATE TABLE operacoes(
     CONSTRAINT operacoes_valor_bruto_check CHECK ((valor_bruto >= (0)::numeric)),
     CONSTRAINT operacoes_valor_liquido_check CHECK ((valor_liquido >= (0)::numeric))
 );
+
+CREATE TABLE "session" (
+  "sid" varchar NOT NULL COLLATE "default",
+  "sess" json NOT NULL,
+  "expire" timestamp(6) NOT NULL
+)
+WITH (OIDS=FALSE);
+
+ALTER TABLE "session" ADD CONSTRAINT "session_pkey" PRIMARY KEY ("sid") NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+CREATE INDEX "IDX_session_expire" ON "session" ("expire");

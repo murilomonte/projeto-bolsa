@@ -4,8 +4,9 @@ const { mustBeAuthenticated } = require('./user_controller')
 
 
 exports.save = function (req, res) {
-    /* Criar uma nova instância da classe Operacao com os dados recebidos do corpo da requisição */
-    const operacao = new Operacao(req.body)
+    let dadosDaOperacao = req.body;
+    dadosDaOperacao.user_id = res.locals.usuario.id; // Adiciona o id do user a operacao
+    const operacao = new Operacao(dadosDaOperacao);
     /* Validar e realizar as conversoes necessarias nos dados da classe */
     operacao.validate()
     if (operacao.errors.length > 0) {
@@ -13,8 +14,7 @@ exports.save = function (req, res) {
     } else {
         operacao.create()
             .then((result) => {
-                res.redirect('/operacoes')
-                //res.send('Operação salva com sucesso com o id: ' + result)
+                res.redirect('/operacao')
             })
             .catch((error) => {
                 res.status(500).send(error)
@@ -24,7 +24,7 @@ exports.save = function (req, res) {
 
 exports.findAll = function (req, res) {
     /* Criar uma nova instância da classe Operacao com propriedade data com objeto vazio */
-    const operacao = new Operacao({})
+    const operacao = new Operacao({ user_id: res.locals.usuario.id })
     operacao.readAll()
         .then((result) => { // result é uma lista de operações
             // console.log('Lista de operações: ', result);
