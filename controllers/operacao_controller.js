@@ -1,5 +1,6 @@
 
 const Operacao = require('../models/operacao')
+const { mustBeAuthenticated } = require('./user_controller')
 
 
 exports.save = function (req, res) {
@@ -26,7 +27,7 @@ exports.findAll = function (req, res) {
     const operacao = new Operacao({})
     operacao.readAll()
         .then((result) => { // result é uma lista de operações
-            console.log('Lista de operações: ', result);
+            // console.log('Lista de operações: ', result);
             res.render('pages/operacoes', {
                 title: 'Operações',
                 paginaAtiva: 'operacao',

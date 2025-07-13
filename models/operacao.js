@@ -2,7 +2,7 @@ const validator = require('validator');
 const ATIVOS_VALIDOS = ['PETR4', 'ITSA4', 'BBAS3', 'WEGE3', 'BBSE3'];
 const TIPOS_VALIDOS = ['compra', 'venda'];
 
-const pool = require('../db/postgres');
+const pool = require('../db/postgres.js');
 
 /**
  * Classe para representar uma operação da bolsa de valores.
@@ -67,7 +67,6 @@ class Operacao {
 			}
 			this.data = validatedData;
 			console.log('Operação validada:', this.data);
-
 		}
 	}
 

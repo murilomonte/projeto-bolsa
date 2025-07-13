@@ -1,9 +1,62 @@
-<ul>
-    <li><a 
-        <% if (paginaAtiva === 'home') { %> class="active" <% } %> 
-        href="/">Home</a></li>
-    <li><a 
-        <% if (paginaAtiva === 'operacao') { %> class="active" <% } %>
-        href="/operacoes">Operações</a></li>
-    <li><a href="#sobre">Sobre</a></li>
-</ul>
+<div class="container">
+    <ul class="navbar">
+        <div class="operations">
+            <li>
+                <a <% if (paginaAtiva==='home' ) { %> class="active" <% } %> href="/">
+                        Home
+                </a>
+            </li>
+            <li>
+                <a <% if (paginaAtiva==='operacao' ) { %> class="active" <% } %> href="/operacao/">
+                        Operações
+                </a>
+            </li>
+            <li>
+                <a href="#sobre">
+                    Sobre
+                </a>
+            </li>
+        </div>
+        <div class="user">
+            <li class="active">
+                <% if (locals.usuario) { %>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <%= usuario.username %>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    Perfil
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/user/logout">
+                                    Sair (logout)
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                <% } else { %>
+                    <li>
+                        <a href="#">
+                            Visitante
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/user/login">
+                                    Entrar
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/user/signup">
+                                    Criar Conta
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                <% } %>
+            </li>
+        </div>
+    </ul>
+</div>
