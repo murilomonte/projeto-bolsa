@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const { errorToString } = require('../utils/error_string');
 
 exports.save = function (req, res) {
     /* Criar uma nova instância da classe User com os dados recebidos do corpo da requisição */
@@ -11,11 +12,13 @@ exports.save = function (req, res) {
     } else {
         user.create()
             .then((result) => {
-                //res.redirect('/operacoes')
-                res.send('Usuário cadastrado com sucesso com o id: ' + result)
+                res.redirect('/user/login')
             })
             .catch((error) => {
-                res.status(500).send(error)
+                res.render('pages/error', {
+                    title: "error",
+                    message: errorToString(error)
+                });
             })
     }
 }
@@ -38,10 +41,10 @@ exports.login = function (req, res) {
                 })
             })
             .catch((error) => {
-                // TODO: fazer tela de erro
-                console.log(`Error 500`)
-                console.log(error)
-                res.status(500).send(error)
+                res.render('pages/error', {
+                    title: "error",
+                    message: errorToString(error)
+                });
             })
     }
 }

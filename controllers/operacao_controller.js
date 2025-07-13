@@ -1,7 +1,5 @@
 
 const Operacao = require('../models/operacao')
-const { mustBeAuthenticated } = require('./user_controller')
-
 
 exports.save = function (req, res) {
     let dadosDaOperacao = req.body;
@@ -17,7 +15,10 @@ exports.save = function (req, res) {
                 res.redirect('/operacao')
             })
             .catch((error) => {
-                res.status(500).send(error)
+                res.render('pages/error', {
+                    title: "error",
+                    message: errorToString(error)
+                });
             })
     }
 }
@@ -35,6 +36,9 @@ exports.findAll = function (req, res) {
             })
         })
         .catch((error) => {
-            res.status(500).send(error)
+            res.render('pages/error', {
+                title: "error",
+                message: errorToString(error)
+            });
         })
 }
