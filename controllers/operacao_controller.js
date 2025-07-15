@@ -1,6 +1,18 @@
 
 const Operacao = require('../models/operacao')
 
+exports.getForm = function (req, res) {
+    let operacao = new Operacao({});
+    res.render('pages/nova_operacao',
+        {
+            title: 'Nova Operação',
+            paginaAtiva: 'Operacao',
+            ativosValidos: operacao.ATIVOS_VALIDOS,
+            tiposValidos: operacao.TIPOS_VALIDOS
+        }
+    );
+}
+
 exports.save = function (req, res) {
     let dadosDaOperacao = req.body;
     dadosDaOperacao.user_id = res.locals.usuario.id; // Adiciona o id do user a operacao

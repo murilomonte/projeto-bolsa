@@ -6,14 +6,7 @@ const userController = require('../controllers/user_controller.js')
 
 router.get('/', userController.mustBeAuthenticated, operacaoController.findAll)
 
-router.get('/nova', userController.mustBeAuthenticated, function (req, res) {
-  res.render('pages/nova_operacao',
-    {
-      title: 'Nova Operação',
-      paginaAtiva: 'operacao'
-    }
-  );
-})
+router.get('/nova', userController.mustBeAuthenticated, operacaoController.getForm)
 
 router.post('/salvar', userController.mustBeAuthenticated, operacaoController.save)
 

@@ -1,0 +1,22 @@
+.home-card > h1 {
+    color: var(--text);
+    font-size: 4rem;
+}
+
+.home-card > .card-content > p {
+    color: var(--text);
+}
+
+.home-card {
+    border-radius: 10px;
+    padding: 20px;
+    background-color: var(--card);
+
+    display: grid;
+    grid-template-columns: max-content auto;
+    grid-template-rows: 3fr 1fr;
+}
+
+.card-content {
+    grid-column: 1 / 2;
+}

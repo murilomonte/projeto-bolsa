@@ -1,7 +1,4 @@
 const validator = require('validator');
-const ATIVOS_VALIDOS = ['PETR4', 'ITSA4', 'BBAS3', 'WEGE3', 'BBSE3'];
-const TIPOS_VALIDOS = ['compra', 'venda'];
-
 const pool = require('../db/postgres.js');
 
 /**
@@ -11,6 +8,9 @@ const pool = require('../db/postgres.js');
  */
 class Operacao {
 	constructor(data) {
+		this.ATIVOS_VALIDOS = ['PETR4', 'ITSA4', 'BBAS3', 'WEGE3', 'BBSE3'];
+		this.TIPOS_VALIDOS = ['compra', 'venda'];
+
 		this.data = data;
 		this.errors = [];
 	}
@@ -29,10 +29,10 @@ class Operacao {
 		if (!validator.isDate(data)) {
 			this.errors.push('Formato de data inválido.')
 		}
-		if (!validator.isIn(ativo, ATIVOS_VALIDOS)) {
+		if (!validator.isIn(ativo, this.ATIVOS_VALIDOS)) {
 			this.errors.push('Código do ativo inválido.')
 		}
-		if (!validator.isIn(tipoDeOperacao, TIPOS_VALIDOS)) {
+		if (!validator.isIn(tipoDeOperacao, this.TIPOS_VALIDOS)) {
 			this.errors.push('Tipo de operação inválido.')
 		}
 		if (!validator.isInt(quantidade)) {

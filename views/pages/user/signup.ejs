@@ -1,36 +1,32 @@
-<div class="container">
-    <div class="row">
-        <div class="col-3"></div>
-        <div class="col-6">
-            <form action="/user/salvar" method="POST" class="container mt-5">
-                <div class="mb-3">
-                    <label for="inputUsername" class="form-label">username:</label>
-                    <input type="text" class="form-control" id="inputUsername" name="username">
-                </div>
-                <div class="mb-3">
-                    <label for="inputPassword1" class="form-label">password:</label>
-                    <input type="password" class="form-control" id="inputPassword1" name="password1">
-                </div>
-                <div class="mb-3">
-                    <label for="inputPassword2" class="form-label">repita o password:</label>
-                    <input type="password" class="form-control" id="inputPassword2" name="password2">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label" for="inputEmail">email:</label>
-                    <input type="email" class="form-control" id="inputEmail" name="email"
-                        placeholder="fulano@email.com">
-                </div>
-                <div class="mb-3">
-                    <label for="inputFirstName" class="form-label">primeiro nome:</label>
-                    <input type="text" class="form-control" id="inputFirstName" name="nome">
-                </div>
-                <div class="mb-3">
-                    <label for="inpuLastName" class="form-label">último nome:</label>
-                    <input type="text" class="form-control" id="inputLastName" name="sobrenome">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+<main class="main">
+    <form action="/user/salvar" method="POST" class="card login-form">
+        <div class="presentation">
+            <h1>iMoney</h1>
+            <p>Crie sua conta para continuar</p>
+            <p>Já tem uma conta? <a href="/user/login" class="clickable">Faça seu login!</a></p>
         </div>
-        <div class="col-3"></div>
-    </div>
-</div>
+        <div class="input-group">
+            <label for="inputUsername" class="form-label">Username</label>
+            <input type="text" class="form-input" id="inputUsername" name="username">
+        </div>
+        <div class="input-group">
+            <label for="inputPassword1" class="form-label">Senha</label>
+            <input type="password" class="form-input" id="inputPassword1" name="password1">
+        
+            <label for="inputPassword2" class="form-label">Repita a senha</label>
+            <input type="password" class="form-input" id="inputPassword2" name="password2">
+        </div>
+        <div class="input-group">
+            <label class="form-label" for="inputEmail">E-mail</label>
+            <input type="email" class="form-input" id="inputEmail" name="email" placeholder="fulano@email.com">
+        </div>
+        <div class="input-group">
+            <label for="inputFirstName" class="form-label">Primeiro nome</label>
+            <input type="text" class="form-input" id="inputFirstName" name="nome">
+        
+            <label for="inpuLastName" class="form-label">Último nome</label>
+            <input type="text" class="form-input" id="inputLastName" name="sobrenome">
+        </div>
+        <button type="submit" class="form-button expanded">Criar conta</button>
+    </form>
+</main>

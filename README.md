@@ -8,5 +8,7 @@
 - [x] Apos o login redirecionar para tela inicial
 - [x] Criar tela de erros
 - [ ] Refazer o front-end
+- [ ] Update do usuário
+- [ ] Usar o [connect-flash](https://www.npmjs.com/package/connect-flash)
 
 - [ ] Apos o singin, logar atomaticamente

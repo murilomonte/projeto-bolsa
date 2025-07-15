@@ -1,0 +1,90 @@
+.login-form {
+    max-width: 500px;
+    margin: auto;
+    color: var(--text);
+}
+
+.presentation {
+    text-align: center;
+    margin: 0px 0px 30px 0px;
+}
+
+.input-group {
+    margin: 20px 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-radio-group {
+    display: flex;
+    gap: 5px;
+}
+
+.input-radio-group > label {
+    background-color: var(--separator);
+    padding: 15px 15px 15px 40px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.input-radio-group > label > input[type="radio"] {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translate(-50%, -50%);
+}
+
+
+
+.single-line-input {
+    display: flex;
+    gap: 10px;
+}
+
+.form-label {
+    color: var(--text);
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.form-input {
+    padding: 15px;
+    border-radius: 10px;
+    background-color: var(--separator);
+    border: none;
+    color: var(--text);
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.form-input:focus {
+    outline: 2px solid var(--text);
+}
+
+.form-button {
+    cursor: pointer;
+    justify-self: end;
+    align-self: end;
+
+    display: block;
+    background-color: var(--text);
+    color: var(--textInverse) !important;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    font-size: .9rem;
+    transition: .4s;
+}
+
+.form-button:hover {
+    background-color: var(--date);
+    transition: .2s;
+}
+
+.form-button:focus {
+    outline: 2px solid var(--textInverse);
+}
+
+.label-input-tipo {
+    text-transform: capitalize;
+}

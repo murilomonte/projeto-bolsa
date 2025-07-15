@@ -1,19 +1,18 @@
-<div class="container">
-    <div class="row">
-        <div class="col-3"></div>
-        <div class="col-6">
-            <form action="/user/login" method="POST" class="container mt-5">
-                <div class="mb-3">
-                    <label for="inputUsername" class="form-label">username:</label>
-                    <input type="text" class="form-control" id="inputUsername" name="username">
-                </div>
-                <div class="mb-3">
-                    <label for="inputPassword" class="form-label">password:</label>
-                    <input type="password" class="form-control" id="inputPassword" name="password">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+<main class="main">
+    <form class="card login-form" action="/user/login" method="POST">
+        <div class="presentation">
+            <h1>iMoney</h1>
+            <p>Faça seu login para continuar!</p>
+            <p>Ainda não tem uma conta? <a href="/user/signup" class="clickable">Crie uma!</a></p>
         </div>
-        <div class="col-3"></div>
-    </div>
-</div>
+        <div class="input-group">
+            <label for="inputUsername" class="form-label">Username</label>
+            <input type="text" class="form-input" id="inputUsername" name="username">
+        </div>
+        <div class="input-group">
+            <label for="inputPassword" class="form-label">Senha</label>
+            <input type="password" class="form-input" id="inputPassword" name="password">
+        </div>
+        <button type="submit" class="form-button expanded">Entrar</button>
+    </form>
+</main>

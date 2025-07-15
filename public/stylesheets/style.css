@@ -1,3 +1,14 @@
+/* Color */
+@import url('utility/color.css');
+
+/* Global */
+@import url('global/global.css');
+
+/* Header */
 @import url('header/header.css');
 
-@import url('global/global.css');
+/* Main */
+@import url('home/home.css');
+
+/* Form */
+@import url('form/form.css');

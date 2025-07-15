@@ -1,0 +1,57 @@
+html.default-mode {
+    /* Dark */
+    --background: #121212;
+    --text: #F5F5F5;
+    --textInverse: var(--background);
+    --button: #242424;
+    --card: var(--button);
+    --date: #B3B3B3;
+    --separator: #363636;
+    --hover: #363636;
+    --primary: #FFEA00;
+    --secondary: #F2CE0F;
+}
+
+html.alternative-mode {
+    /* Light */
+    --background: #F5F5F5;
+    --text: #121212;
+    --textInverse: var(--background);
+    --button: #FFFFFF;
+    --card: var(--button);
+    --date: #B3B3B3;
+    --separator: #e8e8e8;
+    --hover: #E3E3E3;
+    --primary: #FFEA00;
+    --secondary: #F2CE0F;
+}
+
+@media (prefers-color-scheme: light) {
+    html.alternative-mode {
+        /* Dark */
+        --background: #121212;
+        --text: #F5F5F5;
+        --textInverse: var(--background);
+        --button: #242424;
+        --card: var(--button);
+        --date: #B3B3B3;
+        --separator: #363636;
+        --hover: #363636;
+        --primary: #FFEA00;
+        --secondary: #F2CE0F;
+    }
+
+    html.default-mode {
+        /* Light */
+        --background: #F5F5F5;
+        --text: #121212;
+        --textInverse: var(--background);
+        --button: #FFFFFF;
+        --card: var(--button);
+        --date: #B3B3B3;
+        --separator: #e8e8e8;
+        --hover: #E3E3E3;
+        --primary: #FFEA00;
+        --secondary: #F2CE0F;
+    }
+}

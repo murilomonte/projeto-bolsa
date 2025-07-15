@@ -1,27 +1,21 @@
-<div class="container">
-    <ul class="navbar">
-        <div class="operations">
-            <li>
-                <a <% if (paginaAtiva==='home' ) { %> class="active" <% } %> href="/">
-                        Home
-                </a>
-            </li>
-            <li>
-                <a <% if (paginaAtiva==='operacao' ) { %> class="active" <% } %> href="/operacao/">
-                        Operações
-                </a>
-            </li>
-            <li>
-                <a href="#sobre">
-                    Sobre
-                </a>
-            </li>
-        </div>
-        <div class="user">
-            <li class="active">
+<header class="header">
+    <div class="navbar-container">
+        <ul class="navbar">
+            <a href="/" class="logo">iMoney</a>
+            <ul class="destinations">
+                <li>
+                    <a class="destination-item" <% if (paginaAtiva==='operacao' ) { %> class="active" <% } %> href="/operacao/">
+                            Operações
+                    </a>
+                </li>
+                <li>
+                    <a class="destination-item" href="#sobre">
+                        Sobre
+                    </a>
+                </li>
                 <% if (locals.usuario) { %>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="destination-item" href="#">
                             <%= usuario.username %>
                         </a>
                         <ul>
@@ -39,7 +33,7 @@
                     </li>
                 <% } else { %>
                     <li>
-                        <a href="#">
+                        <a class="destination-item" href="#">
                             Visitante
                         </a>
                         <ul>
@@ -56,7 +50,7 @@
                         </ul>
                     </li>
                 <% } %>
-            </li>
-        </div>
-    </ul>
-</div>
+            </ul>
+        </ul>
+    </div>
+</header>
