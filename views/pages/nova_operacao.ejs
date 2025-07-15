@@ -1,18 +1,23 @@
 <main class="main">
     <form action="/operacao/salvar" method="POST" class="card login-form">
+        <% if (locals.errors.length > 0) { %>
+            <div class="error-div">
+                <% for (let error of locals.errors) { %>
+                    <p><%= error %></p>
+                <% } %>
+            </div>
+        <% } %>
         <div class="input-group">
             <label for="inputData" class="form-label">Data</label>
             <input type="date" name="data" id="inputData" required class="form-input">
         </div>
         <div class="input-group">
             <label for="inputTipo" class="form-label">Código do ativo</label>
-            <select name="ativo" id="inputAtivo" class="form-input">
-                <% if (locals.errors.length > 0) { %>
-                    <div class="error-div">
-                        <% for (let error of locals.errors) { %>
-                            <p><%= error %></p>
-                        <% } %>
-                    </div>
+            <select name="ativo" required id="inputAtivo" class="form-input">
+                <% for (let ativo of ativosValidos) { %>
+                    <option value="<%= ativo %>">
+                        <%= ativo %>
+                    </option>
                 <% } %>
             </select>
         </div>
@@ -23,7 +28,7 @@
                     <div class="input-radio-group">
                         <label class="label-input-tipo" for="inputTipo<%= tipo %>">
                             <%= tipo %>
-                                <input type="radio" name="tipoDeOperacao" id="inputTipo<%= tipo %>" value="<%= tipo %>"
+                                <input required type="radio" name="tipoDeOperacao" id="inputTipo<%= tipo %>" value="<%= tipo %>"
                                     checked>
                         </label>
                     </div>
