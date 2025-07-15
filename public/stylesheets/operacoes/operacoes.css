@@ -1,0 +1,41 @@
+.operacoes-table {
+    color: var(--text);
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+.operacoes > .button {
+    margin-top: 20px;
+}
+
+.operacoes-table th {
+    background-color: var(--text);
+    color: var(--textInverse);
+    padding: 0px 10px;
+}
+
+.operacoes-table th:last-child {
+    border-radius: 0px 10px 0px 0px;
+}
+
+.operacoes-table th:first-child {
+    border-radius: 10px 0px 0px 0px;
+}
+
+.operacoes-table td {
+    padding: 10px;
+    border-top: 1px solid var(--text);
+}
+
+.operacoes-table td ~ td {
+    border-left: 1px solid var(--text);
+}
+
+.operacoes-table tr {
+    transition: .1s;
+}
+
+.operacoes-table tr:hover {
+    transition: .1s;
+    background-color: var(--separator);
+}

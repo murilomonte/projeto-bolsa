@@ -5,7 +5,8 @@ html.default-mode {
     --textInverse: var(--background);
     --button: #242424;
     --card: var(--button);
-    --date: #B3B3B3;
+    /* --date: #B3B3B3; */
+    --date: #818181;
     --separator: #363636;
     --hover: #363636;
     --primary: #FFEA00;

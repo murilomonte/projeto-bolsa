@@ -5,6 +5,10 @@
             <p>Sua solução completa para todas as suas necessidades financeiras.</p>
             <p>Registre suas operações e acompanhe seus investimentos.</p>
         </div>
-        <a class="form-button" href="/user/login">Login</a>
+        <% if (locals.usuario) { %>
+            <a class="button" href="/operacao/">Minhas operações</a>
+        <% } else { %>
+            <a class="button" href="/user/login">Começar!</a>
+        <% } %>
     </div>
 </main>

@@ -15,21 +15,61 @@
 
 .destination-item {
     display: block;
-    background-color: var(--button);
     padding: 10px 20px;
-    border-radius: 10px;
-    border: 2px solid transparent;
-    font-size: .9rem;
     transition: .2s;
 }
 
-.destination-item:hover {
-    background-color: var(--hover);
+.destination-item::after {
+    display: block;
+    background-color : var(--text);
+    content: '';
+    width: 0%; height: 2px;
+    border-radius: 1px;
+    transition: .3s;
 }
+
+.destination-item:hover::after {
+    width: 100%;
+    transition: .3s;
+}
+
 
 .navbar .destinations, .navbar .user {
     display: flex;
     align-items: center;
     gap: 20px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    width: 200px;
+    border: 1px solid var(--separator);
+    top: 120%;
+    right: 0%;
+    position: absolute;
+    display: none;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--card);
+}
+
+.dropdown-content > a, .dropdown-content > p {
+    display: block;
+    padding: 10px 10px;
+    border-radius: 5px;
+    transition: .3s;
+}
+
+.dropdown-content > a:hover{
+    background-color: var(--separator);
+    transition: .3s;
+}
+
+.dropdown-content a ~ a {
+    border-top: 1px solid var(--separator);
 }
 

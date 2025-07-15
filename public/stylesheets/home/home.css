@@ -17,6 +17,26 @@
     grid-template-rows: 3fr 1fr;
 }
 
+.home-card > .button {
+    justify-self: end;
+}
+
+@media screen and (max-width: 850px) {
+    .home-card {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        gap: 20px;
+    }
+
+    .home-card > .button {
+        justify-self: center;
+    }
+
+    .home-card > .form-button {
+        align-self: center;
+    }
+}
+
 .card-content {
     grid-column: 1 / 2;
 }
