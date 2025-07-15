@@ -6,7 +6,6 @@ const userController = require('../controllers/user_controller')
 router.get('/login', (req, res) => {
     res.render('pages/user/signin', {
         title: 'Entrar',
-        paginaAtiva: 'Entrar'
     })
 })
 
@@ -17,7 +16,6 @@ router.get('/logout', userController.logout)
 router.get('/signup', (req, res) => {
     res.render('pages/user/signup', {
         title: 'Novo Usuário',
-        paginaAtiva: 'Novo user'
     })
 })
 

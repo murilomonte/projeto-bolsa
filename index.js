@@ -1,4 +1,5 @@
 const express = require('express')
+const flash = require('connect-flash');
 const app = express()
 const port = 3000
 
@@ -37,11 +38,18 @@ const sessionOptions = session({
     httpOnly: true
   }
 })
+
 app.use(sessionOptions)
 app.use((req, res, next) => {
   res.locals.usuario = req.session.usuario
   next()
 })
+ 
+app.use(flash());
+app.use((req, res, next) => {
+  res.locals.errors = req.flash('errors');
+  next();
+});
 
 app.use('/', router)
 app.use('/operacao', operacaoRouter)

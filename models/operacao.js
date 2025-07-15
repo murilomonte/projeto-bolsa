@@ -71,14 +71,14 @@ class Operacao {
 				valorLiquido: valorLiquido
 			}
 			this.data = validatedData;
-			console.log('Operação validada:', this.data);
+			// console.log('Operação validada:', this.data);
 		}
 	}
 
 	create() {
 		const query_text = 'INSERT INTO operacoes (data, ativo, tipo_de_operacao, quantidade, preco, valor_bruto, taxa_b3, valor_liquido, user_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING id;'
 		const query_params = [this.data.data, this.data.ativo, this.data.tipoDeOperacao, this.data.quantidade, this.data.preco, this.data.valorBruto, this.data.taxaB3, this.data.valorLiquido, this.data.user_id];
-		console.log('user_data', this.data)
+		// console.log('user_data', this.data)
 		return new Promise((resolve, reject) => {
 			pool.query(query_text, query_params, (error, result) => {
 				if (error) {

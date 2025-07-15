@@ -2,29 +2,19 @@ const User = require('../models/user');
 const { errorToString } = require('../utils/error_string');
 
 exports.save = function (req, res) {
-    /* Criar uma nova instância da classe User com os dados recebidos do corpo da requisição */
     const user = new User(req.body)
-    /* Validar e realizar as conversoes necessarias nos dados da classe */
     user.validate()
     if (user.errors.length > 0) {
-        // Se houver erros, redirecionar para a pagina de cadastro e exibir os erros
-        // return res.send(user.errors)
-        res.render('pages/error', {
-            title: "error",
-            message: errorToString(user.errors),
-            paginaAtiva: 'Error'
-        });
+        req.flash('errors', user.errors)
+        res.redirect('/user/signup');
     } else {
         user.create()
             .then((result) => {
                 res.redirect('/user/login')
             })
             .catch((error) => {
-                res.render('pages/error', {
-                    title: "error",
-                    message: errorToString(error),
-                    paginaAtiva: 'Error'
-                });
+                req.flash('errors', user.errors)
+                res.redirect('/user/signup');
             })
     }
 }
@@ -33,13 +23,8 @@ exports.login = function (req, res) {
     const user = new User(req.body)
     user.validateLogin()
     if (user.errors.length > 0) {
-        // Se houver erros, redirecionar para a pagina de login e exibir os erros
-        // return res.send(user.errors)
-        res.render('pages/error', {
-            title: "error",
-            message: errorToString(user.errors),
-            paginaAtiva: 'Error'
-        });
+        req.flash('errors', user.errors)
+        res.redirect('/user/login');
     } else {
         user.login()
             .then((result) => {
@@ -52,11 +37,8 @@ exports.login = function (req, res) {
                 })
             })
             .catch((error) => {
-                res.render('pages/error', {
-                    title: "error",
-                    message: errorToString(error),
-                    paginaAtiva: 'Error'
-                });
+                req.flash('errors', user.errors)
+                res.redirect('/user/login');
             })
     }
 }

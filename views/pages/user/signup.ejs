@@ -4,28 +4,35 @@
             <h1>iMoney</h1>
             <p>Crie sua conta para continuar</p>
             <p>Já tem uma conta? <a href="/user/login" class="clickable">Faça seu login!</a></p>
+            <% if (locals.errors.length > 0) { %>
+                <div class="error-div">
+                    <% for (let error of locals.errors) { %>
+                        <p><%= error %></p>
+                    <% } %>
+                </div>
+            <% } %>
         </div>
         <div class="input-group">
             <label for="inputUsername" class="form-label">Username</label>
-            <input type="text" class="form-input" id="inputUsername" name="username">
+            <input required type="text" class="form-input" id="inputUsername" name="username">
         </div>
         <div class="input-group">
             <label for="inputPassword1" class="form-label">Senha</label>
-            <input type="password" class="form-input" id="inputPassword1" name="password1">
+            <input required type="password" class="form-input" id="inputPassword1" name="password1">
         
             <label for="inputPassword2" class="form-label">Repita a senha</label>
-            <input type="password" class="form-input" id="inputPassword2" name="password2">
+            <input required type="password" class="form-input" id="inputPassword2" name="password2">
         </div>
         <div class="input-group">
             <label class="form-label" for="inputEmail">E-mail</label>
-            <input type="email" class="form-input" id="inputEmail" name="email" placeholder="fulano@email.com">
+            <input required type="email" class="form-input" id="inputEmail" name="email" placeholder="fulano@email.com">
         </div>
         <div class="input-group">
             <label for="inputFirstName" class="form-label">Primeiro nome</label>
-            <input type="text" class="form-input" id="inputFirstName" name="nome">
+            <input required type="text" class="form-input" id="inputFirstName" name="nome">
         
             <label for="inpuLastName" class="form-label">Último nome</label>
-            <input type="text" class="form-input" id="inputLastName" name="sobrenome">
+            <input required type="text" class="form-input" id="inputLastName" name="sobrenome">
         </div>
         <button type="submit" class="form-button button expanded">Criar conta</button>
     </form>

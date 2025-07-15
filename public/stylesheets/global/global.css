@@ -83,3 +83,12 @@ a.clickable {
 .display-block {
     display: block !important;
 }
+
+.error-div {
+    text-align: start;
+    padding: 10px;
+    color: black;
+    background-color: rgb(255, 141, 141);
+    border-radius: 5px;
+    border: 2px solid rgb(218, 75, 75);
+}

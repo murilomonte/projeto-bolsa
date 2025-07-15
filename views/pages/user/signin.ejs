@@ -4,14 +4,21 @@
             <h1>iMoney</h1>
             <p>Faça seu login para continuar!</p>
             <p>Ainda não tem uma conta? <a href="/user/signup" class="clickable">Crie uma!</a></p>
+            <% if (locals.errors.length > 0) { %>
+                <div class="error-div">
+                    <% for (let error of locals.errors) { %>
+                        <p><%= error %></p>
+                    <% } %>
+                </div>
+            <% } %>
         </div>
         <div class="input-group">
             <label for="inputUsername" class="form-label">Username</label>
-            <input type="text" class="form-input" id="inputUsername" name="username">
+            <input  type="text" class="form-input" id="inputUsername" name="username">
         </div>
         <div class="input-group">
             <label for="inputPassword" class="form-label">Senha</label>
-            <input type="password" class="form-input" id="inputPassword" name="password">
+            <input  type="password" class="form-input" id="inputPassword" name="password">
         </div>
         <button type="submit" class="form-button button expanded">Entrar</button>
     </form>

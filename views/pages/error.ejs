@@ -1,4 +1,10 @@
-<main class="main-error">
-    <p class="error-message"><%= message %></p>
-    <a href="/" class="main-button">Voltar para home</a>
+<main class="main card">
+    <% if (locals.errors.length > 0) { %>
+        <div class="error-div">
+            <% for (let error of locals.errors) { %>
+                <p><%= error %></p>
+            <% } %>
+        </div>
+    <% } %>
+    <a href="/" class="button">Voltar para home</a>
 </main>

@@ -7,11 +7,13 @@
         <div class="input-group">
             <label for="inputTipo" class="form-label">Código do ativo</label>
             <select name="ativo" id="inputAtivo" class="form-input">
-                <% for (let ativo of ativosValidos) { %>
-                    <option value="<%= ativo %>">
-                        <%= ativo %>
-                    </option>
-                    <% } %>
+                <% if (locals.errors.length > 0) { %>
+                    <div class="error-div">
+                        <% for (let error of locals.errors) { %>
+                            <p><%= error %></p>
+                        <% } %>
+                    </div>
+                <% } %>
             </select>
         </div>
         <div class="input-group">
