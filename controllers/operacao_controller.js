@@ -8,7 +8,12 @@ exports.save = function (req, res) {
     /* Validar e realizar as conversoes necessarias nos dados da classe */
     operacao.validate()
     if (operacao.errors.length > 0) {
-        return res.send(operacao.errors)
+        // return res.send(operacao.errors)
+        res.render('pages/error', {
+            title: "error",
+            message: errorToString(user.errors),
+            paginaAtiva: 'Error'
+        });
     } else {
         operacao.create()
             .then((result) => {
@@ -17,7 +22,8 @@ exports.save = function (req, res) {
             .catch((error) => {
                 res.render('pages/error', {
                     title: "error",
-                    message: errorToString(error)
+                    message: errorToString(error),
+                    paginaAtiva: 'Error'
                 });
             })
     }
@@ -38,7 +44,8 @@ exports.findAll = function (req, res) {
         .catch((error) => {
             res.render('pages/error', {
                 title: "error",
-                message: errorToString(error)
+                message: errorToString(error),
+                paginaAtiva: 'Error'
             });
         })
 }

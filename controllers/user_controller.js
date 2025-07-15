@@ -8,7 +8,12 @@ exports.save = function (req, res) {
     user.validate()
     if (user.errors.length > 0) {
         // Se houver erros, redirecionar para a pagina de cadastro e exibir os erros
-        return res.send(user.errors)
+        // return res.send(user.errors)
+        res.render('pages/error', {
+            title: "error",
+            message: errorToString(user.errors),
+            paginaAtiva: 'Error'
+        });
     } else {
         user.create()
             .then((result) => {
@@ -17,7 +22,8 @@ exports.save = function (req, res) {
             .catch((error) => {
                 res.render('pages/error', {
                     title: "error",
-                    message: errorToString(error)
+                    message: errorToString(error),
+                    paginaAtiva: 'Error'
                 });
             })
     }
@@ -28,7 +34,12 @@ exports.login = function (req, res) {
     user.validateLogin()
     if (user.errors.length > 0) {
         // Se houver erros, redirecionar para a pagina de login e exibir os erros
-        return res.send(user.errors)
+        // return res.send(user.errors)
+        res.render('pages/error', {
+            title: "error",
+            message: errorToString(user.errors),
+            paginaAtiva: 'Error'
+        });
     } else {
         user.login()
             .then((result) => {
@@ -43,7 +54,8 @@ exports.login = function (req, res) {
             .catch((error) => {
                 res.render('pages/error', {
                     title: "error",
-                    message: errorToString(error)
+                    message: errorToString(error),
+                    paginaAtiva: 'Error'
                 });
             })
     }
