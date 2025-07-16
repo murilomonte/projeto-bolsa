@@ -19,16 +19,17 @@ exports.save = function (req, res) {
     const operacao = new Operacao(dadosDaOperacao);
     operacao.validate()
     if (operacao.errors.length > 0) {
-        req.flash('errors', user.errors)
-        res.redirect('operacao/nova/');
+        req.flash('errors', operacao.errors)
+        res.redirect('/operacao/nova/');
     } else {
         operacao.create()
             .then((result) => {
                 res.redirect('/operacao')
             })
             .catch((error) => {
-                req.flash('errors', user.errors)
-                res.redirect('operacao/nova/');
+                console.log(error)
+                req.flash('errors', operacao.errors)
+                res.redirect('/operacao/nova/');
             })
     }
 }
@@ -45,7 +46,7 @@ exports.findAll = function (req, res) {
             })
         })
         .catch((error) => {
-            req.flash('errors', user.errors)
+            req.flash('errors', operacao.errors)
             res.render('pages/error', {
                 title: "Error"
             });

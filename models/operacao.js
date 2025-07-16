@@ -22,6 +22,8 @@ class Operacao {
 		let quantidade = this.data.quantidade;
 		let preco = this.data.preco;
 		let user_id = this.data.user_id;
+		const valorBruto = this.data.preco * this.data.quantidade;
+
 
 		if (!Number.isInteger(user_id)) {
 			this.errors.push('Formato de user_id inválido.')
@@ -52,10 +54,14 @@ class Operacao {
 			}
 		}
 
+		if (valorBruto * 0.0003 > 1000000000) {
+			this.errors.push('Quantidade ou preço unitário inválido.')
+		}
+
 
 		if (this.errors.length === 0) {
 			// calculando atributos derivados
-			const valorBruto = this.data.preco * this.data.quantidade;
+			// const valorBruto = this.data.preco * this.data.quantidade;
 			const taxaB3 = valorBruto * 0.0003; // 0.03% de taxa B3
 			const valorLiquido = this.data.tipoDeOperacao === 'compra' ? (valorBruto + taxaB3) : (valorBruto - taxaB3);
 			// limpando os dados desnessários ou extras que tenham vindo na requisição e adicionando valores derivados.
