@@ -1,15 +1,3 @@
-# av2-pwbe
+# projeto-bolsa
 
-## TODO
-
-- [x] Proteger as rotas
-- [x] Mudar o banco para adicionar o id do usuario em cada operacao
-- [x] Mudar o get do operacoes para retornar apenas as operacoes do usuario logado
-- [x] Apos o login redirecionar para tela inicial
-- [x] Criar tela de erros
-- [x] Refazer o front-end
-- [x] Usar o [connect-flash](https://www.npmjs.com/package/connect-flash)
-
-- [ ] Update do usuário (Baixa prioridade)
-- [ ] Reduzir o tempo de loading do css (Baixa prioridade)
-- [ ] Apos o singin, logar atomaticamente (Baixa prioridade)
+Projeto para gerenciar ativos de uma bolsa de valores feito como segunda atividade avaliativa da disciplina de programação web frontend 
